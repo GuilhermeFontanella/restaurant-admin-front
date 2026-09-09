@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+
+  --color-cream: #efe8e2;
+  --color-card: #fdfbf9;
+  --color-ink: #1a120d;
+  --color-ink-soft: #6b5a50;
+  --color-ink-mute: #98867c;
+  --color-dark: #100c0a;
+  --color-dark-soft: #c9bab1;
+  --color-dark-mute: #9c8a80;
+  --color-ember-300: #ffa950;
+  --color-ember-400: #ff9224;
+  --color-ember-500: #f5811f;
+  --color-ember-600: #e06c0c;
+  --color-ember-700: #b4550a;
+  --color-success: #3fbf6f;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+body {
+  margin: 0;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
