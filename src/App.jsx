@@ -1,28 +1,22 @@
-import Header from './components/Header'
-import Hero from './components/Hero'
-import Panels from './components/Panels'
-import HowItWorks from './components/HowItWorks'
-import Economy from './components/Economy'
-import Dashboard from './components/Dashboard'
-import TechStack from './components/TechStack'
-import Pricing from './components/Pricing'
-import Signup from './components/Signup'
-import Footer from './components/Footer'
+import { Route, Routes } from 'react-router-dom'
+import LandingPage from './pages/LandingPage'
+import ConfirmSignup from './pages/ConfirmSignup'
+import AdminLogin from './pages/admin/AdminLogin'
+import AdminLeads from './pages/admin/AdminLeads'
+import ResetPassword from './pages/admin/ResetPassword'
+import ProtectedRoute from './pages/admin/ProtectedRoute'
 
 function App() {
   return (
-    <div className="overflow-x-hidden bg-cream font-sans text-ink">
-      <Header />
-      <Hero />
-      <Panels />
-      <HowItWorks />
-      <Economy />
-      <Dashboard />
-      <TechStack />
-      <Pricing />
-      <Signup />
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/cadastro/confirmar/:token" element={<ConfirmSignup />} />
+      <Route path="/admin/login" element={<AdminLogin />} />
+      <Route path="/admin/redefinir-senha" element={<ResetPassword />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/admin/leads" element={<AdminLeads />} />
+      </Route>
+    </Routes>
   )
 }
 

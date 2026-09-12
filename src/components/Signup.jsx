@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { api, ApiError } from '../lib/api'
 
 const BENEFITS = ['Conta pronta no mesmo dia', 'Ajudamos a subir seu cardápio', 'Cancele quando quiser']
 
@@ -6,7 +7,26 @@ const inputClasses =
   'w-full box-border rounded-2xl border border-ink/[0.12] bg-white px-4 py-3.5 font-sans text-[15px] text-ink outline-none focus:border-ember-500 focus:ring-[3px] focus:ring-ember-500/[0.18]'
 
 export default function Signup() {
-  const [enviado, setEnviado] = useState(false)
+  const [status, setStatus] = useState('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+  const [form, setForm] = useState({ nomeEstabelecimento: '', emailContato: '', telefoneContato: '' })
+
+  function updateField(field) {
+    return (event) => setForm((prev) => ({ ...prev, [field]: event.target.value }))
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault()
+    setStatus('submitting')
+    setErrorMessage('')
+    try {
+      await api.post('/leads', form)
+      setStatus('done')
+    } catch (error) {
+      setErrorMessage(error instanceof ApiError ? error.message : 'Não foi possível enviar seu cadastro. Tente de novo.')
+      setStatus('idle')
+    }
+  }
 
   return (
     <section id="cadastro" className="mx-auto max-w-[1160px] px-8 pb-24 pt-[88px]">
@@ -26,35 +46,61 @@ export default function Signup() {
           </div>
         </div>
 
-        <form
-          className="grid gap-3"
-          onSubmit={(event) => {
-            event.preventDefault()
-            setEnviado(true)
-          }}
-        >
-          <div>
-            <div className="mb-1.5 text-[11px] font-bold uppercase tracking-wider text-ink-mute">Nome do estabelecimento</div>
-            <input type="text" placeholder="Botequim do Zé" className={inputClasses} required />
+        {status === 'done' ? (
+          <div className="rounded-2xl bg-ember-500/10 p-6 text-center">
+            <div className="font-bold">Confira seu e-mail</div>
+            <p className="mt-2 text-sm text-ink-soft">
+              Enviamos um link para {form.emailContato} para você concluir o cadastro.
+            </p>
           </div>
-          <div>
-            <div className="mb-1.5 text-[11px] font-bold uppercase tracking-wider text-ink-mute">E-mail</div>
-            <input type="email" placeholder="voce@seubar.com.br" className={inputClasses} required />
-          </div>
-          <div>
-            <div className="mb-1.5 text-[11px] font-bold uppercase tracking-wider text-ink-mute">WhatsApp</div>
-            <input type="tel" placeholder="(00) 00000-0000" className={inputClasses} required />
-          </div>
-          <button
-            type="submit"
-            className="mt-1.5 rounded-full bg-ember-500 py-4 font-sans text-base font-bold text-[#2A1403] shadow-[0_8px_22px_rgba(224,108,12,0.38)] transition hover:bg-ember-400"
-          >
-            {enviado ? 'Recebemos seu contato' : 'Criar conta grátis'}
-          </button>
-          <div className="text-center text-xs leading-relaxed text-ink-mute">
-            Respondemos em até um dia útil para liberar seu acesso.
-          </div>
-        </form>
+        ) : (
+          <form className="grid gap-3" onSubmit={handleSubmit}>
+            <div>
+              <div className="mb-1.5 text-[11px] font-bold uppercase tracking-wider text-ink-mute">Nome do estabelecimento</div>
+              <input
+                type="text"
+                placeholder="Botequim do Zé"
+                className={inputClasses}
+                required
+                value={form.nomeEstabelecimento}
+                onChange={updateField('nomeEstabelecimento')}
+              />
+            </div>
+            <div>
+              <div className="mb-1.5 text-[11px] font-bold uppercase tracking-wider text-ink-mute">E-mail</div>
+              <input
+                type="email"
+                placeholder="voce@seubar.com.br"
+                className={inputClasses}
+                required
+                value={form.emailContato}
+                onChange={updateField('emailContato')}
+              />
+            </div>
+            <div>
+              <div className="mb-1.5 text-[11px] font-bold uppercase tracking-wider text-ink-mute">WhatsApp</div>
+              <input
+                type="tel"
+                placeholder="(00) 00000-0000"
+                className={inputClasses}
+                required
+                value={form.telefoneContato}
+                onChange={updateField('telefoneContato')}
+              />
+            </div>
+            {errorMessage && <div className="text-sm font-semibold text-red-600">{errorMessage}</div>}
+            <button
+              type="submit"
+              disabled={status === 'submitting'}
+              className="mt-1.5 rounded-full bg-ember-500 py-4 font-sans text-base font-bold text-[#2A1403] shadow-[0_8px_22px_rgba(224,108,12,0.38)] transition hover:bg-ember-400 disabled:opacity-60"
+            >
+              {status === 'submitting' ? 'Enviando...' : 'Criar conta grátis'}
+            </button>
+            <div className="text-center text-xs leading-relaxed text-ink-mute">
+              Você recebe um e-mail na hora para continuar o cadastro.
+            </div>
+          </form>
+        )}
       </div>
     </section>
   )
