@@ -1,0 +1,9 @@
+services:
+  restaurant-admin-front:
+    build:
+      context: .
+      args:
+        VITE_API_URL: ${VITE_API_URL:-http://localhost:3100}
+        VITE_ORDER_MANAGER_URL: ${VITE_ORDER_MANAGER_URL:-http://localhost:5174}
+    ports:
+      - "8080:8080"
