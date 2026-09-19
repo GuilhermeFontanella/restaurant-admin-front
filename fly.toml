@@ -8,7 +8,7 @@ primary_region = 'gru'
 
 [build]
   [build.args]
-    VITE_API_URL = 'https://kitchen-service-jwjmpw.fly.dev'
+    VITE_API_URL = 'https://restaurant-admin-service-ydvk4w.fly.dev'
 
 [http_service]
   internal_port = 8080

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://kitchen-service-jwjmpw.fly.dev'
+const API_URL = import.meta.env.VITE_API_URL || 'https://restaurant-admin-service-ydvk4w.fly.dev'
 
 const http = axios.create({ baseURL: API_URL })
 
