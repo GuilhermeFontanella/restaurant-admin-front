@@ -44,9 +44,9 @@ export default function Pricing() {
         <h2 className="mx-auto mt-3 text-[32px] font-extrabold leading-tight tracking-tight sm:text-[38px]">
           Preço pelo que a casa opera, não por usuário
         </h2>
-        <p className="mx-auto mt-3.5 max-w-[52ch] text-base leading-relaxed text-ink-soft">
-          Toda a equipe usa a plataforma no plano que você escolher. Sem comissão sobre as vendas: o
-          que a casa fatura é da casa. Valores de referência do beta — ajustamos junto com você.
+        <p className="mx-auto mt-3.5 max-w-[54ch] text-base leading-relaxed text-ink-soft">
+          Toda a equipe usa a plataforma no plano que você escolher, sem cobrança por usuário e sem
+          comissão sobre as vendas. O que a casa fatura é da casa.
         </p>
       </div>
 
@@ -94,6 +94,11 @@ export default function Pricing() {
           </div>
         ))}
       </div>
+
+      <p className="mx-auto mt-7 max-w-[62ch] text-center text-[13px] leading-relaxed text-ink-mute">
+        A plataforma já está no ar e estamos abrindo para as primeiras casas. Quem entra agora fala
+        direto com quem desenvolve o produto.
+      </p>
     </section>
   )
 }

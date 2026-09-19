@@ -1,5 +1,6 @@
 import Header from '../components/Header'
 import Hero from '../components/Hero'
+import Trust from '../components/Trust'
 import Panels from '../components/Panels'
 import HowItWorks from '../components/HowItWorks'
 import Payments from '../components/Payments'
@@ -15,6 +16,7 @@ export default function LandingPage() {
     <div className="overflow-x-hidden bg-cream font-sans text-ink">
       <Header />
       <Hero />
+      <Trust />
       <Panels />
       <HowItWorks />
       <Payments />

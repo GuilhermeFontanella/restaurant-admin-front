@@ -12,17 +12,17 @@ export default function Hero() {
         <div>
           <div className="inline-flex items-center gap-2.5 rounded-full border border-ember-500/40 bg-ember-500/10 py-1.5 pl-3 pr-3.5 text-xs font-bold tracking-tight text-ember-700">
             <span className="h-[7px] w-[7px] animate-pulse-dot rounded-full bg-success" />
-            Vagas abertas para o beta
+            Aberto para as primeiras casas
           </div>
           <h1 className="text-balance mt-6 text-[42px] font-extrabold leading-[1.05] tracking-tighter sm:text-[52px] lg:text-[60px] lg:leading-[1.02]">
-            O bar inteiro conversando
+            O salão inteiro
             <br />
             <span className="text-ember-600">em tempo real</span>
           </h1>
-          <p className="text-pretty mt-6 max-w-[33ch] text-lg leading-relaxed text-ink-soft sm:text-[19px]">
-            Cardápio, balcão, cozinha e display de chamada em uma só plataforma. O pedido nasce na
-            mesa e aparece na cozinha no mesmo segundo — sem comanda de papel, sem ninguém gritando
-            número.
+          <p className="text-pretty mt-6 max-w-[36ch] text-lg leading-relaxed text-ink-soft sm:text-[19px]">
+            Cardápio digital, balcão, cozinha e display de chamada em uma só plataforma. O pedido
+            nasce na mesa do cliente, chega à cozinha no mesmo segundo e volta como chamada no salão —
+            sem comanda de papel e sem ninguém repassando pedido à mão.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -38,11 +38,9 @@ export default function Hero() {
               Ver os quatro painéis
             </a>
           </div>
-          <div className="mt-8 flex flex-wrap gap-6 text-[13px] font-semibold text-ink-mute">
-            <span>Sem instalação</span>
-            <span>Roda em qualquer tablet ou celular</span>
-            <span>Pagamento direto na conta da casa</span>
-            <span>Seus dados em banco próprio</span>
+          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[13px] font-semibold text-ink-mute">
+            <span>Roda no navegador, sem instalar nada</span>
+            <span>Conta pronta no mesmo dia</span>
           </div>
         </div>
 

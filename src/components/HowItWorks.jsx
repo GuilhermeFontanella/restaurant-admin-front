@@ -25,7 +25,7 @@ const STEPS = [
     step: 'Passo 4',
     title: 'Display chama a mesa',
     description:
-      'O nome sobe no display do salão e o cliente sabe exatamente quando buscar. Ninguém pergunta "cadê meu pedido?".',
+      'O número e o nome do cliente sobem no display do salão assim que o pedido fica pronto. O atendimento para de ser interrompido para responder onde está cada pedido.',
     active: false,
   },
 ]
@@ -34,8 +34,8 @@ export default function HowItWorks() {
   return (
     <section className="mx-auto max-w-[1160px] px-8 pt-[88px]">
       <div className="text-xs font-bold uppercase tracking-widest text-ember-700">Como funciona</div>
-      <h2 className="mt-3 max-w-[22ch] text-[32px] font-extrabold leading-tight tracking-tight sm:text-[38px]">
-        Do celular do cliente ao balcão, sem intermediário
+      <h2 className="mt-3 max-w-[24ch] text-[32px] font-extrabold leading-tight tracking-tight sm:text-[38px]">
+        Quatro etapas, nenhuma digitação repetida
       </h2>
 
       <div className="mt-11 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">

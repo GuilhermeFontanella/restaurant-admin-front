@@ -59,7 +59,7 @@ export default function Signup() {
               <div className="mb-1.5 text-[11px] font-bold uppercase tracking-wider text-ink-mute">Nome do estabelecimento</div>
               <input
                 type="text"
-                placeholder="Botequim do Zé"
+                placeholder="Bar do Alto"
                 className={inputClasses}
                 required
                 value={form.nomeEstabelecimento}
