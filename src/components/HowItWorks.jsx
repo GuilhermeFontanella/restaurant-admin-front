@@ -1,17 +1,18 @@
-import shotPix from '../assets/shot-pix.png'
+import shotItemOpcoes from '../assets/shot-item-opcoes.png'
 
 const STEPS = [
   {
     step: 'Passo 1',
     title: 'Pedido feito na mesa',
     description:
-      'O cliente abre o cardápio, escolhe, escreve observação e informa o nome usado na chamada. Pagamento por Pix, crédito ou débito.',
+      'O cliente abre o cardápio pelo QR code, monta o item com as opções da casa, escreve observação e informa o nome usado na chamada.',
     active: true,
   },
   {
     step: 'Passo 2',
-    title: 'Balcão confirma',
-    description: 'O pedido entra na fila do balcão com valor, mesa e horário. Nada é digitado duas vezes e nada se perde no caminho.',
+    title: 'Pagamento confirmado',
+    description:
+      'O cliente paga no próprio celular por Pix, cartão ou Google Pay. O pedido entra na fila do balcão já confirmado, com valor, mesa e horário.',
     active: false,
   },
   {
@@ -54,16 +55,17 @@ export default function HowItWorks() {
         ))}
       </div>
 
-      <div className="mt-11 grid grid-cols-1 items-center gap-8 rounded-3xl border border-ink/[0.07] bg-card p-7 sm:p-8 lg:grid-cols-[1fr_300px]">
+      <div className="mt-11 grid grid-cols-1 items-center gap-8 rounded-3xl border border-ink/[0.07] bg-card p-7 sm:p-8 lg:grid-cols-[1fr_260px]">
         <div>
-          <div className="text-xl font-extrabold tracking-tight">Pagamento resolvido antes da produção</div>
+          <div className="text-xl font-extrabold tracking-tight">O item sai da mesa do jeito que o cliente pediu</div>
           <p className="mt-2 max-w-[52ch] text-[15px] leading-relaxed text-ink-soft">
-            O cliente paga no próprio celular — Pix com QR code, crédito ou débito — e a cozinha só
-            recebe pedido confirmado. Menos fila no caixa, menos pedido cancelado depois de pronto.
+            Cada produto pode ter grupos de opção — ponto da carne, tamanho da porção, molho — e campo
+            de observação. A escolha vai junto para a ficha da cozinha, então ninguém precisa perguntar
+            de novo no meio do preparo.
           </p>
         </div>
-        <div className="overflow-hidden rounded-[18px] border-[5px] border-[#1A1412] bg-dark shadow-[0_18px_40px_rgba(20,10,4,0.3)]">
-          <img src={shotPix} alt="Tela de pagamento com Pix" className="block h-auto w-full" />
+        <div className="mx-auto w-[220px] overflow-hidden rounded-[18px] border-[5px] border-[#1A1412] bg-dark shadow-[0_18px_40px_rgba(20,10,4,0.3)] lg:mx-0 lg:w-full">
+          <img src={shotItemOpcoes} alt="Item do cardápio com opções e observação" className="block h-auto w-full" />
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 const NAV_LINKS = [
   { href: '#paineis', label: 'Painéis' },
+  { href: '#pagamentos', label: 'Pagamentos' },
   { href: '#economia', label: 'Economia' },
   { href: '#tecnologia', label: 'Tecnologia' },
   { href: '#planos', label: 'Planos' },

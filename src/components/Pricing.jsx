@@ -4,7 +4,7 @@ const PLANS = [
     description: 'Para casas de atendimento rápido',
     price: 'R$ 149',
     featured: false,
-    features: ['Cardápio digital e painel do balcão', 'Display de chamada no salão', 'Até 15 mesas', 'Relatório do dia'],
+    features: ['Cardápio digital e painel do balcão', 'Display de chamada no salão', 'Pagamento por Pix e cartão', 'Até 15 mesas', 'Relatório do dia'],
     cta: 'Começar grátis',
   },
   {
@@ -16,7 +16,7 @@ const PLANS = [
     features: [
       'Os quatro painéis em tempo real',
       'Mesas ilimitadas e controle de estoque',
-      'Pagamento por Pix, crédito e débito',
+      'Mercado Pago na sua conta: Pix, cartão e Google Pay',
       'Dashboard de gestão com histórico',
     ],
     cta: 'Criar conta grátis',
@@ -45,8 +45,8 @@ export default function Pricing() {
           Preço pelo que a casa opera, não por usuário
         </h2>
         <p className="mx-auto mt-3.5 max-w-[52ch] text-base leading-relaxed text-ink-soft">
-          Toda a equipe usa a plataforma no plano que você escolher. Valores de referência do beta —
-          ajustamos junto com você.
+          Toda a equipe usa a plataforma no plano que você escolher. Sem comissão sobre as vendas: o
+          que a casa fatura é da casa. Valores de referência do beta — ajustamos junto com você.
         </p>
       </div>
 
