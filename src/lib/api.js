@@ -28,7 +28,7 @@ async function request(path, { method = 'GET', body, token } = {}) {
 }
 
 export const api = {
-  get: (path, token) => request(path, { token }),
+  get: (path, token) => request(`${API_URL}${path}`, { token }),
   post: (path, body, token) => request(path, { method: 'POST', body, token }),
   patch: (path, body, token) => request(path, { method: 'PATCH', body, token }),
   del: (path, token) => request(path, { method: 'DELETE', token }),
