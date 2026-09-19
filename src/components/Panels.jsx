@@ -1,4 +1,5 @@
 import shotDisplayTight from '../assets/shot-display-tight.png'
+import shotCozinha from '../assets/shot-cozinha.png'
 
 const PANELS = [
   {
@@ -73,15 +74,33 @@ export default function Panels() {
         ))}
       </div>
 
-      <div className="mt-5 grid grid-cols-1 items-center gap-9 rounded-3xl border border-ink/[0.07] bg-card p-7 shadow-[0_16px_40px_rgba(60,35,15,0.09)] lg:grid-cols-[1.9fr_1fr]">
+      <div className="mt-5 grid grid-cols-1 items-center gap-9 rounded-3xl border border-ink/[0.07] bg-card p-7 shadow-[0_16px_40px_rgba(60,35,15,0.09)] lg:grid-cols-[1.35fr_1fr]">
         <div className="overflow-hidden rounded-[18px] border border-ink/[0.06]">
-          <img src={shotDisplayTight} alt="Display de chamada aguardando a próxima chamada" className="block h-auto w-full" />
+          <img
+            src={shotCozinha}
+            alt="Painel da cozinha com pedidos em preparo e prontos"
+            className="block h-auto w-full"
+          />
+        </div>
+        <div>
+          <div className="text-xl font-extrabold tracking-tight">A ficha da cozinha, sem papel</div>
+          <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
+            Os pedidos chegam em duas colunas: em preparo e prontos. Cada ficha traz as opções
+            escolhidas pelo cliente, a observação da mesa e há quanto tempo o pedido está esperando —
+            um toque muda o status e o salão inteiro fica sabendo.
+          </p>
+        </div>
+      </div>
+
+      <div className="mt-4 grid grid-cols-1 items-center gap-9 rounded-3xl border border-ink/[0.07] bg-card p-7 shadow-[0_16px_40px_rgba(60,35,15,0.09)] lg:grid-cols-[1.35fr_1fr]">
+        <div className="overflow-hidden rounded-[18px] border border-ink/[0.06]">
+          <img src={shotDisplayTight} alt="Display de chamada exibindo o pedido pronto" className="block h-auto w-full" />
         </div>
         <div>
           <div className="text-xl font-extrabold tracking-tight">A tela que fica virada para o salão</div>
           <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
             O display fica em espera até a cozinha marcar um pedido como pronto. Nesse instante o
-            nome do cliente sobe na tela, com os demais pedidos prontos listados abaixo.
+            número e o nome do cliente sobem na tela, com os demais pedidos prontos listados abaixo.
           </p>
         </div>
       </div>

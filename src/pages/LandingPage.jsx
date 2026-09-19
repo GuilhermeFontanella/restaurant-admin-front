@@ -2,6 +2,7 @@ import Header from '../components/Header'
 import Hero from '../components/Hero'
 import Panels from '../components/Panels'
 import HowItWorks from '../components/HowItWorks'
+import Payments from '../components/Payments'
 import Economy from '../components/Economy'
 import Dashboard from '../components/Dashboard'
 import TechStack from '../components/TechStack'
@@ -16,6 +17,7 @@ export default function LandingPage() {
       <Hero />
       <Panels />
       <HowItWorks />
+      <Payments />
       <Economy />
       <Dashboard />
       <TechStack />

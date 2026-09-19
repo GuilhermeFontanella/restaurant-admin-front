@@ -8,12 +8,16 @@ const FEATURES = [
     description: 'Arquitetura database-per-tenant: cada casa tem seus dados em banco próprio, isolados dos demais clientes da plataforma.',
   },
   {
+    title: 'Credenciais criptografadas',
+    description: 'As chaves do gateway de pagamento de cada casa são criptografadas com AES-256-GCM antes de ir para o banco e nunca voltam pela API.',
+  },
+  {
     title: 'Cardápio com a sua cara',
     description: 'Nome, logo e cor do estabelecimento no cardápio que o cliente abre. A estrutura é a mesma, a identidade é sua.',
   },
 ]
 
-const TAGS = ['React + Vite', 'Tailwind', 'Framer Motion', 'TanStack Query', 'Socket.io', '@zxing · código de barras', 'Fly.io']
+const TAGS = ['React + Vite', 'Tailwind', 'Framer Motion', 'TanStack Query', 'Socket.io', 'Mercado Pago', '@zxing · código de barras', 'Fly.io']
 
 export default function TechStack() {
   return (
@@ -23,7 +27,7 @@ export default function TechStack() {
         Tempo real de verdade e dados isolados por restaurante
       </h2>
 
-      <div className="mt-9 grid grid-cols-1 gap-4 sm:grid-cols-3">
+      <div className="mt-9 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {FEATURES.map((feature) => (
           <div key={feature.title} className="rounded-[22px] border border-ink/[0.07] bg-card p-7">
             <div className="text-lg font-extrabold tracking-tight">{feature.title}</div>

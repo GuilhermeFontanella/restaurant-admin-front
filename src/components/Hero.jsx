@@ -41,6 +41,7 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap gap-6 text-[13px] font-semibold text-ink-mute">
             <span>Sem instalação</span>
             <span>Roda em qualquer tablet ou celular</span>
+            <span>Pagamento direto na conta da casa</span>
             <span>Seus dados em banco próprio</span>
           </div>
         </div>
@@ -64,7 +65,7 @@ export default function Hero() {
               <img src={shotCardapio} alt="Cardápio no celular do cliente" className="block h-auto w-full" />
             </div>
             <div className="absolute bottom-6 right-6 rounded-2xl border border-ink/[0.07] bg-card px-[18px] py-3 shadow-[0_14px_32px_rgba(60,35,15,0.22)]">
-              <div className="text-[10px] font-bold uppercase tracking-wider text-ink-mute">Pedido #17 · Mesa 1</div>
+              <div className="text-[10px] font-bold uppercase tracking-wider text-ink-mute">Pedido #33 · Mesa 4</div>
               <div className="mt-1 flex items-center gap-2 text-sm font-bold text-ink">
                 <span className="h-[7px] w-[7px] animate-pulse-dot rounded-full bg-ember-500" />
                 Pronto em 0,2s na cozinha
