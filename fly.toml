@@ -9,6 +9,7 @@ primary_region = 'gru'
 [build]
   [build.args]
     VITE_API_URL = 'https://restaurant-admin-service-ydvk4w.fly.dev'
+    VITE_ORDER_MANAGER_URL = 'https://order-manager-cipcha.fly.dev'
 
 [http_service]
   internal_port = 8080
