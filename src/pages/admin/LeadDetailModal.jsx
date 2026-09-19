@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { api, ApiError } from '../../lib/api'
 import { getToken } from '../../lib/auth'
 
-const ORDER_MANAGER_URL = import.meta.env.VITE_ORDER_MANAGER_URL ?? 'http://localhost:5174'
+const ORDER_MANAGER_URL = import.meta.env.VITE_ORDER_MANAGER_URL || 'http://localhost:5174'
 
 const RESTAURANT_STATUS_LABELS = {
   TRIAL: 'Em teste',

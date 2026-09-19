@@ -7,6 +7,8 @@ app = 'restaurant-admin-front'
 primary_region = 'gru'
 
 [build]
+  [build.args]
+    VITE_API_URL = 'https://kitchen-service-jwjmpw.fly.dev'
 
 [http_service]
   internal_port = 8080
