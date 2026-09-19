@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:3100'
+const API_URL = import.meta.env.VITE_API_URL ?? 'https://kitchen-service-jwjmpw.fly.dev'
 
 export class ApiError extends Error {
   constructor(message, status) {
