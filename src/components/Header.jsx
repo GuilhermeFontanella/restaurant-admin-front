@@ -6,6 +6,8 @@ const NAV_LINKS = [
   { href: '#planos', label: 'Planos' },
 ]
 
+const ORDER_MANAGER_URL = import.meta.env.VITE_ORDER_MANAGER_URL ?? 'http://localhost:5174'
+
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-ink/[0.07] bg-cream/80 backdrop-blur-xl backdrop-saturate-150">
@@ -18,23 +20,33 @@ export default function Header() {
             </svg>
           </div>
           <div>
-            <div className="text-base font-extrabold leading-tight tracking-tight">Botequim do Zé</div>
-            <div className="text-[11px] font-semibold uppercase tracking-wider text-ink-mute">Gestão em tempo real</div>
+            <div className="text-base font-extrabold leading-tight tracking-tight">Boteco do Zé</div>
+            <div className="whitespace-nowrap text-[11px] font-semibold uppercase tracking-wider text-ink-mute">
+              Software de gestão
+            </div>
           </div>
         </div>
-        <nav className="hidden items-center gap-7 text-sm font-semibold text-ink-soft md:flex">
+        <nav className="hidden items-center gap-7 text-sm font-semibold text-ink-soft lg:flex">
           {NAV_LINKS.map((link) => (
             <a key={link.href} href={link.href} className="text-ink-soft hover:text-ink">
               {link.label}
             </a>
           ))}
         </nav>
-        <a
-          href="#cadastro"
-          className="whitespace-nowrap rounded-full bg-ember-500 px-[22px] py-[11px] text-sm font-bold text-[#2A1403] shadow-[0_8px_22px_rgba(224,108,12,0.38)] transition hover:-translate-y-0.5 hover:bg-ember-400"
-        >
-          Criar conta grátis
-        </a>
+        <div className="flex items-center gap-4">
+          <a
+            href={`${ORDER_MANAGER_URL}/login`}
+            className="hidden whitespace-nowrap text-sm font-semibold text-ink-soft hover:text-ink sm:block"
+          >
+            Entrar
+          </a>
+          <a
+            href="#cadastro"
+            className="whitespace-nowrap rounded-full bg-ember-500 px-[22px] py-[11px] text-sm font-bold text-[#2A1403] shadow-[0_8px_22px_rgba(224,108,12,0.38)] transition hover:-translate-y-0.5 hover:bg-ember-400"
+          >
+            Criar conta grátis
+          </a>
+        </div>
       </div>
     </header>
   )

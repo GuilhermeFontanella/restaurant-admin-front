@@ -19,9 +19,10 @@ export default function Economy() {
             <h2 className="mt-3.5 text-[32px] font-extrabold leading-tight tracking-tight sm:text-[38px]">
               Menos gente correndo entre mesa, cozinha e balcão
             </h2>
-            <p className="mt-4 max-w-[42ch] text-base leading-relaxed text-dark-soft sm:text-[17px]">
-              Repassar pedido não é serviço, é retrabalho. Quando a informação anda sozinha entre os
-              painéis, a mesma equipe atende mais mesas — e o dono vê em qual etapa cada pedido está.
+            <p className="mt-4 max-w-[44ch] text-base leading-relaxed text-dark-soft sm:text-[17px]">
+              Repassar pedido não é atendimento, é retrabalho. Quando a informação circula sozinha
+              entre os painéis, a mesma equipe cobre mais mesas — e a gerência enxerga em que etapa
+              cada pedido está, sem precisar perguntar.
             </p>
             <div className="mt-7 rounded-2xl border border-white/[0.08] bg-white/[0.05] px-6 py-5">
               <div className="text-[13px] leading-relaxed text-dark-mute">
