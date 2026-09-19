@@ -124,7 +124,7 @@ export default function AdminLeads() {
     }
   }
 
-  const selectedLead = leads.find((lead) => lead.id === selectedLeadId) ?? null
+  const selectedLead = leads?.find((lead) => lead.id === selectedLeadId) ?? null
 
   return (
     <div className="min-h-screen bg-cream font-sans text-ink">
