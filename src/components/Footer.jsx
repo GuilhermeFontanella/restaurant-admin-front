@@ -1,3 +1,5 @@
+import CompanyFooter from './CompanyFooter'
+
 export default function Footer() {
   return (
     <footer className="bg-dark text-dark-mute">
@@ -17,6 +19,9 @@ export default function Footer() {
           <a href="#paineis" className="text-dark-soft hover:text-white">
             Painéis
           </a>
+        </div>
+        <div className="w-full">
+          <CompanyFooter variant="dark" />
         </div>
       </div>
     </footer>

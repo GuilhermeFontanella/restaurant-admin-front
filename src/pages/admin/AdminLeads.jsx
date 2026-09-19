@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { api, ApiError } from '../../lib/api'
 import { clearToken, getToken } from '../../lib/auth'
 import Pagination from '../../components/Pagination'
+import CompanyFooter from '../../components/CompanyFooter'
 import LeadDetailModal from './LeadDetailModal'
 import StatsPanel from './StatsPanel'
 
@@ -252,6 +253,10 @@ export default function AdminLeads() {
         )}
 
         <Pagination page={page} pageSize={PAGE_SIZE} total={total} onPageChange={handlePageChange} />
+
+        <div className="mt-12">
+          <CompanyFooter />
+        </div>
       </div>
 
       {selectedLead && (
