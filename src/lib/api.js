@@ -1,4 +1,8 @@
+import axios from 'axios'
+
 const API_URL = import.meta.env.VITE_API_URL ?? 'https://kitchen-service-jwjmpw.fly.dev'
+
+const http = axios.create({ baseURL: API_URL })
 
 export class ApiError extends Error {
   constructor(message, status) {
@@ -8,28 +12,23 @@ export class ApiError extends Error {
 }
 
 async function request(path, { method = 'GET', body, token } = {}) {
-  const response = await fetch(`${API_URL}${path}`, {
-    method,
-    headers: {
-      'Content-Type': 'application/json',
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-    },
-    body: body ? JSON.stringify(body) : undefined,
-  })
-
-  const data = await response.json().catch(() => null)
-
-  if (!response.ok) {
-    const message = data?.message ?? 'Não foi possível completar a solicitação.'
-    throw new ApiError(Array.isArray(message) ? message.join(', ') : message, response.status)
+  try {
+    const { data } = await http.request({
+      url: path,
+      method,
+      data: body,
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+    })
+    return data
+  } catch (error) {
+    const message = error.response?.data?.message ?? 'Não foi possível completar a solicitação.'
+    throw new ApiError(Array.isArray(message) ? message.join(', ') : message, error.response?.status)
   }
-
-  return data
 }
 
 export const api = {
-  get: (path, token) => request(`${API_URL}${path}`, { token }),
-  post: (path, body, token) => request(`${API_URL}${path}`, { method: 'POST', body, token }),
+  get: (path, token) => request(path, { token }),
+  post: (path, body, token) => request(path, { method: 'POST', body, token }),
   patch: (path, body, token) => request(path, { method: 'PATCH', body, token }),
   del: (path, token) => request(path, { method: 'DELETE', token }),
 }
