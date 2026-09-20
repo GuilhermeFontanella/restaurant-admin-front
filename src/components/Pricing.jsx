@@ -1,6 +1,5 @@
 const PLAN = {
-  name: 'Salão',
-  description: 'Para bares com mesa e cozinha própria',
+  description: 'Acesso completo à plataforma, para toda a equipe',
   price: 'R$ 499,90',
   features: [
     'Os quatro painéis em tempo real',
@@ -29,10 +28,9 @@ export default function Pricing() {
 
       <div className="mt-12 flex justify-center">
         <div className="w-full max-w-[460px] rounded-2xl border border-ember-500/50 bg-night-card p-8 shadow-[0_24px_60px_rgba(245,129,31,0.12)] sm:p-10">
-          <div className="text-lg font-extrabold tracking-tight text-white">{PLAN.name}</div>
-          <p className="mt-1.5 text-sm leading-snug text-mist-mute">{PLAN.description}</p>
+          <p className="text-sm leading-snug text-mist-mute">{PLAN.description}</p>
 
-          <div className="mt-5 flex items-baseline gap-1.5">
+          <div className="mt-4 flex items-baseline gap-1.5">
             <span className="text-[38px] font-extrabold tracking-tighter text-ember-400 sm:text-[44px]">
               {PLAN.price}
             </span>
