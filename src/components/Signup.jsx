@@ -4,7 +4,7 @@ import { api, ApiError } from '../lib/api'
 const BENEFITS = ['Conta pronta no mesmo dia', 'Ajudamos a subir seu cardápio', 'Cancele quando quiser']
 
 const inputClasses =
-  'w-full box-border rounded-2xl border border-ink/[0.12] bg-white px-4 py-3.5 font-sans text-[15px] text-ink outline-none focus:border-ember-500 focus:ring-[3px] focus:ring-ember-500/[0.18]'
+  'w-full box-border rounded-xl border border-night-line bg-night px-4 py-3.5 font-sans text-[15px] text-white outline-none placeholder:text-mist-mute focus:border-ember-500 focus:ring-[3px] focus:ring-ember-500/25'
 
 export default function Signup() {
   const [status, setStatus] = useState('idle')
@@ -29,78 +29,89 @@ export default function Signup() {
   }
 
   return (
-    <section id="cadastro" className="mx-auto max-w-[1160px] px-8 pb-24 pt-[88px]">
-      <div className="grid grid-cols-1 items-center gap-12 rounded-[28px] border border-ink/[0.07] bg-card p-8 shadow-[0_20px_50px_rgba(60,35,15,0.1)] sm:p-10 lg:grid-cols-[1fr_400px] lg:p-[52px]">
-        <div>
-          <h2 className="max-w-[20ch] text-[28px] font-extrabold leading-tight tracking-tight sm:text-[36px]">
-            Crie sua conta grátis e teste com uma mesa hoje
-          </h2>
-          <p className="mt-4 max-w-[40ch] text-base leading-relaxed text-ink-soft sm:text-[17px]">
-            Você monta o cardápio, abre os painéis e roda um pedido de ponta a ponta. Sem cartão, sem
-            contrato, sem instalar nada.
-          </p>
-          <div className="mt-6 grid gap-2 text-sm font-semibold text-ink-soft">
-            {BENEFITS.map((benefit) => (
-              <div key={benefit}>{benefit}</div>
-            ))}
-          </div>
-        </div>
+    <section id="cadastro" className="mx-auto max-w-[1200px] px-6 pb-24 pt-24 sm:px-8">
+      <div className="relative overflow-hidden rounded-[28px] border border-night-line bg-night-card p-8 sm:p-10 lg:p-14">
+        <div className="glow-blob absolute -right-20 -top-28 h-[420px] w-[420px] rounded-full opacity-70" />
 
-        {status === 'done' ? (
-          <div className="rounded-2xl bg-ember-500/10 p-6 text-center">
-            <div className="font-bold">Confira seu e-mail</div>
-            <p className="mt-2 text-sm text-ink-soft">
-              Enviamos um link para {form.emailContato} para você concluir o cadastro.
+        <div className="relative grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_400px]">
+          <div>
+            <h2 className="max-w-[20ch] text-[28px] font-extrabold leading-tight tracking-tight text-white sm:text-[36px]">
+              Crie sua conta grátis e teste com uma mesa hoje
+            </h2>
+            <p className="mt-4 max-w-[42ch] text-[15px] leading-relaxed text-mist-soft sm:text-base">
+              Você monta o cardápio, abre os painéis e roda um pedido de ponta a ponta. Sem cartão, sem
+              contrato, sem instalar nada.
             </p>
+            <div className="mt-6 grid gap-2.5">
+              {BENEFITS.map((benefit) => (
+                <div key={benefit} className="flex items-center gap-3 text-sm font-semibold text-mist">
+                  <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-ember-500/15 text-xs font-extrabold text-ember-400">
+                    ✓
+                  </span>
+                  {benefit}
+                </div>
+              ))}
+            </div>
           </div>
-        ) : (
-          <form className="grid gap-3" onSubmit={handleSubmit}>
-            <div>
-              <div className="mb-1.5 text-[11px] font-bold uppercase tracking-wider text-ink-mute">Nome do estabelecimento</div>
-              <input
-                type="text"
-                placeholder="Bar do Alto"
-                className={inputClasses}
-                required
-                value={form.nomeEstabelecimento}
-                onChange={updateField('nomeEstabelecimento')}
-              />
+
+          {status === 'done' ? (
+            <div className="rounded-2xl border border-ember-500/30 bg-ember-500/10 p-6 text-center">
+              <div className="font-bold text-white">Confira seu e-mail</div>
+              <p className="mt-2 text-sm text-mist-soft">
+                Enviamos um link para {form.emailContato} para você concluir o cadastro.
+              </p>
             </div>
-            <div>
-              <div className="mb-1.5 text-[11px] font-bold uppercase tracking-wider text-ink-mute">E-mail</div>
-              <input
-                type="email"
-                placeholder="voce@seubar.com.br"
-                className={inputClasses}
-                required
-                value={form.emailContato}
-                onChange={updateField('emailContato')}
-              />
-            </div>
-            <div>
-              <div className="mb-1.5 text-[11px] font-bold uppercase tracking-wider text-ink-mute">WhatsApp</div>
-              <input
-                type="tel"
-                placeholder="(00) 00000-0000"
-                className={inputClasses}
-                required
-                value={form.telefoneContato}
-                onChange={updateField('telefoneContato')}
-              />
-            </div>
-            {errorMessage && <div className="text-sm font-semibold text-red-600">{errorMessage}</div>}
-            <button
-              type="submit"
-              disabled={status === 'submitting'}
-              className="mt-1.5 rounded-full bg-ember-500 py-4 font-sans text-base font-bold text-[#2A1403] shadow-[0_8px_22px_rgba(224,108,12,0.38)] transition hover:bg-ember-400 disabled:opacity-60"
-            >
-              {status === 'submitting' ? 'Enviando...' : 'Criar conta grátis'}
-            </button>
-            <div className="text-center text-xs leading-relaxed text-ink-mute">
-              Você recebe um e-mail na hora para continuar o cadastro.
-            </div>
-          </form>
-        )}
+          ) : (
+            <form className="grid gap-3" onSubmit={handleSubmit}>
+              <div>
+                <div className="mb-1.5 text-[11px] font-bold uppercase tracking-wider text-mist-mute">
+                  Nome do estabelecimento
+                </div>
+                <input
+                  type="text"
+                  placeholder="Bar do Alto"
+                  className={inputClasses}
+                  required
+                  value={form.nomeEstabelecimento}
+                  onChange={updateField('nomeEstabelecimento')}
+                />
+              </div>
+              <div>
+                <div className="mb-1.5 text-[11px] font-bold uppercase tracking-wider text-mist-mute">E-mail</div>
+                <input
+                  type="email"
+                  placeholder="voce@seubar.com.br"
+                  className={inputClasses}
+                  required
+                  value={form.emailContato}
+                  onChange={updateField('emailContato')}
+                />
+              </div>
+              <div>
+                <div className="mb-1.5 text-[11px] font-bold uppercase tracking-wider text-mist-mute">WhatsApp</div>
+                <input
+                  type="tel"
+                  placeholder="(00) 00000-0000"
+                  className={inputClasses}
+                  required
+                  value={form.telefoneContato}
+                  onChange={updateField('telefoneContato')}
+                />
+              </div>
+              {errorMessage && <div className="text-sm font-semibold text-red-400">{errorMessage}</div>}
+              <button
+                type="submit"
+                disabled={status === 'submitting'}
+                className="mt-1.5 rounded-full bg-ember-500 py-4 font-sans text-base font-bold text-[#2A1403] shadow-[0_10px_30px_rgba(245,129,31,0.3)] transition hover:bg-ember-400 disabled:opacity-60"
+              >
+                {status === 'submitting' ? 'Enviando...' : 'Criar conta grátis'}
+              </button>
+              <div className="text-center text-xs leading-relaxed text-mist-mute">
+                Você recebe um e-mail na hora para continuar o cadastro.
+              </div>
+            </form>
+          )}
+        </div>
       </div>
     </section>
   )

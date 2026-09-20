@@ -23,19 +23,22 @@ const COMMITMENTS = [
 
 export default function Trust() {
   return (
-    <section className="mx-auto max-w-[1160px] px-8 pt-14">
-      <div className="rounded-[28px] border border-ink/[0.07] bg-card px-7 py-8 shadow-[0_12px_30px_rgba(60,35,15,0.07)] sm:px-9">
-        <div className="text-xs font-bold uppercase tracking-widest text-ember-700">
-          Compromissos, não promessas
-        </div>
-        <div className="mt-6 grid grid-cols-1 gap-x-8 gap-y-7 sm:grid-cols-2 lg:grid-cols-4">
-          {COMMITMENTS.map((item) => (
-            <div key={item.title} className="border-t-2 border-ember-500/30 pt-4">
-              <div className="text-[15px] font-extrabold leading-snug tracking-tight">{item.title}</div>
-              <p className="mt-2 text-[13.5px] leading-relaxed text-ink-soft">{item.description}</p>
+    <section className="mx-auto max-w-[1200px] px-6 pt-20 sm:px-8">
+      <div className="text-center text-xs font-bold uppercase tracking-widest text-mist-mute">
+        Compromissos, não promessas
+      </div>
+      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {COMMITMENTS.map((item) => (
+          <div
+            key={item.title}
+            className="rounded-xl border border-night-line bg-night-soft p-6 transition hover:border-mist-mute/40"
+          >
+            <div className="text-[15px] font-extrabold leading-snug tracking-tight text-white">
+              {item.title}
             </div>
-          ))}
-        </div>
+            <p className="mt-2.5 text-[13.5px] leading-relaxed text-mist-soft">{item.description}</p>
+          </div>
+        ))}
       </div>
     </section>
   )

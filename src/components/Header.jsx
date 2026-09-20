@@ -1,53 +1,86 @@
+import { useState } from 'react'
+import logoMark from '../assets/logo-mark.png'
+
 const NAV_LINKS = [
   { href: '#paineis', label: 'Painéis' },
   { href: '#pagamentos', label: 'Pagamentos' },
   { href: '#economia', label: 'Economia' },
-  { href: '#tecnologia', label: 'Tecnologia' },
   { href: '#planos', label: 'Planos' },
+  { href: '#faq', label: 'Dúvidas' },
 ]
 
 const ORDER_MANAGER_URL = import.meta.env.VITE_ORDER_MANAGER_URL ?? 'http://localhost:5174'
 
 export default function Header() {
+  const [open, setOpen] = useState(false)
+
   return (
-    <header className="sticky top-0 z-50 border-b border-ink/[0.07] bg-cream/80 backdrop-blur-xl backdrop-saturate-150">
-      <div className="mx-auto flex max-w-[1160px] items-center gap-8 px-8 py-3.5">
-        <div className="mr-auto flex items-center gap-3">
-          <div className="flex h-[38px] w-[38px] items-center justify-center rounded-xl bg-gradient-to-br from-ember-400 to-ember-600 shadow-[0_6px_16px_rgba(224,108,12,0.32)]">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFF4E8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="2" y="4" width="20" height="14" rx="3"></rect>
-              <path d="M8 20h8"></path>
-            </svg>
-          </div>
-          <div>
-            <div className="text-base font-extrabold leading-tight tracking-tight">Boteco do Zé</div>
-            <div className="whitespace-nowrap text-[11px] font-semibold uppercase tracking-wider text-ink-mute">
-              Software de gestão
-            </div>
-          </div>
-        </div>
-        <nav className="hidden items-center gap-7 text-sm font-semibold text-ink-soft lg:flex">
+    <header className="sticky top-0 z-50 border-b border-night-line/70 bg-night/85 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-[1200px] items-center gap-6 px-6 py-3.5 sm:px-8">
+        <a href="#topo" className="flex items-center gap-2.5">
+          <img
+            src={logoMark}
+            alt="Boteco do Zé"
+            className="h-9 w-9 rounded-xl bg-white object-contain p-1"
+          />
+          <span className="whitespace-nowrap text-[15px] font-extrabold tracking-tight text-white">
+            Boteco do Zé
+          </span>
+        </a>
+
+        <nav className="mx-auto hidden items-center gap-1 lg:flex">
           {NAV_LINKS.map((link) => (
-            <a key={link.href} href={link.href} className="text-ink-soft hover:text-ink">
+            <a
+              key={link.href}
+              href={link.href}
+              className="rounded-md px-3 py-2 text-sm font-medium text-mist-soft transition hover:text-white"
+            >
               {link.label}
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-4">
+
+        <div className="ml-auto flex items-center gap-3 lg:ml-0">
           <a
             href={`${ORDER_MANAGER_URL}/login`}
-            className="hidden whitespace-nowrap text-sm font-semibold text-ink-soft hover:text-ink sm:block"
+            className="hidden text-sm font-semibold text-mist-soft transition hover:text-white sm:block"
           >
             Entrar
           </a>
           <a
             href="#cadastro"
-            className="whitespace-nowrap rounded-full bg-ember-500 px-[22px] py-[11px] text-sm font-bold text-[#2A1403] shadow-[0_8px_22px_rgba(224,108,12,0.38)] transition hover:-translate-y-0.5 hover:bg-ember-400"
+            className="whitespace-nowrap rounded-full bg-white px-4 py-2.5 text-[13px] font-bold text-night transition hover:bg-mist sm:px-5 sm:text-sm"
           >
-            Criar conta grátis
+            Criar conta
           </a>
+          <button
+            type="button"
+            onClick={() => setOpen((prev) => !prev)}
+            className="rounded-md p-2 text-mist-soft transition hover:text-white lg:hidden"
+            aria-label={open ? 'Fechar menu' : 'Abrir menu'}
+            aria-expanded={open}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              {open ? <path d="M18 6 6 18M6 6l12 12" /> : <path d="M3 12h18M3 6h18M3 18h18" />}
+            </svg>
+          </button>
         </div>
       </div>
+
+      {open && (
+        <nav className="border-t border-night-line/70 px-6 pb-4 lg:hidden">
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              className="block py-2.5 text-sm font-medium text-mist-soft transition hover:text-white"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      )}
     </header>
   )
 }

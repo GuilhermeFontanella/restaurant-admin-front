@@ -8,12 +8,13 @@ import Economy from '../components/Economy'
 import Dashboard from '../components/Dashboard'
 import TechStack from '../components/TechStack'
 import Pricing from '../components/Pricing'
+import Faq from '../components/Faq'
 import Signup from '../components/Signup'
 import Footer from '../components/Footer'
 
 export default function LandingPage() {
   return (
-    <div className="overflow-x-hidden bg-cream font-sans text-ink">
+    <div className="overflow-x-hidden bg-night font-sans text-mist">
       <Header />
       <Hero />
       <Trust />
@@ -24,6 +25,7 @@ export default function LandingPage() {
       <Dashboard />
       <TechStack />
       <Pricing />
+      <Faq />
       <Signup />
       <Footer />
     </div>
