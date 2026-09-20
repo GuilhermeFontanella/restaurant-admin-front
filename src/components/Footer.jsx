@@ -8,7 +8,7 @@ const COLUMNS = [
       { href: '#paineis', label: 'Os quatro painéis' },
       { href: '#pagamentos', label: 'Pagamentos' },
       { href: '#tecnologia', label: 'Tecnologia' },
-      { href: '#planos', label: 'Planos' },
+      { href: '#planos', label: 'Plano' },
     ],
   },
   {

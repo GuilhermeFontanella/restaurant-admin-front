@@ -5,7 +5,7 @@ const NAV_LINKS = [
   { href: '#paineis', label: 'Painéis' },
   { href: '#pagamentos', label: 'Pagamentos' },
   { href: '#economia', label: 'Economia' },
-  { href: '#planos', label: 'Planos' },
+  { href: '#planos', label: 'Plano' },
   { href: '#faq', label: 'Dúvidas' },
 ]
 
