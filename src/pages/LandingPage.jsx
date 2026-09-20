@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import Reveal from '../components/Reveal'
@@ -13,7 +14,30 @@ import Faq from '../components/Faq'
 import Signup from '../components/Signup'
 import Footer from '../components/Footer'
 
+/**
+ * Ao abrir um link com âncora (ex: /#planos), o navegador tenta rolar antes de
+ * o React montar — a seção ainda não existe e a página fica no topo. Aqui
+ * repetimos o scroll depois da montagem e de novo quando as imagens terminam
+ * de carregar, já que elas não têm dimensão declarada e deslocam o layout.
+ */
+function useScrollToHash() {
+  useEffect(() => {
+    const id = window.location.hash.slice(1)
+    if (!id) return
+
+    const scrollToTarget = () => document.getElementById(id)?.scrollIntoView()
+
+    scrollToTarget()
+
+    if (document.readyState === 'complete') return
+    window.addEventListener('load', scrollToTarget)
+    return () => window.removeEventListener('load', scrollToTarget)
+  }, [])
+}
+
 export default function LandingPage() {
+  useScrollToHash()
+
   return (
     <div className="overflow-x-hidden bg-night font-sans text-mist">
       <Header />
