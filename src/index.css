@@ -17,6 +17,15 @@
   --color-ember-600: #e06c0c;
   --color-ember-700: #b4550a;
   --color-success: #3fbf6f;
+
+  /* Tema escuro da landing */
+  --color-night: #050506;
+  --color-night-soft: #0b0b0d;
+  --color-night-card: #101012;
+  --color-night-line: #1f2123;
+  --color-mist: #d6d3d0;
+  --color-mist-soft: #a3a09c;
+  --color-mist-mute: #77736f;
 }
 
 @keyframes pulse-dot {
@@ -48,4 +57,34 @@ body {
 
 .text-pretty {
   text-wrap: pretty;
+}
+
+/* Título em degradê claro, como no template */
+.gradient-text {
+  background: linear-gradient(90deg, #ffffff 12%, #b9b4af 62%, #8a8580 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Brilho difuso atrás das imagens de produto */
+.glow-blob {
+  background: radial-gradient(circle, rgba(245, 129, 31, 0.5) 0%, rgba(245, 129, 31, 0.12) 45%, rgba(245, 129, 31, 0) 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s ease;
+}
+
+.faq-answer.open {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer > div {
+  overflow: hidden;
 }

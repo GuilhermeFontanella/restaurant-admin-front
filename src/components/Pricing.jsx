@@ -4,7 +4,13 @@ const PLANS = [
     description: 'Para casas de atendimento rápido',
     price: 'R$ 149',
     featured: false,
-    features: ['Cardápio digital e painel do balcão', 'Display de chamada no salão', 'Pagamento por Pix e cartão', 'Até 15 mesas', 'Relatório do dia'],
+    features: [
+      'Cardápio digital e painel do balcão',
+      'Display de chamada no salão',
+      'Pagamento por Pix e cartão',
+      'Até 15 mesas',
+      'Relatório do dia',
+    ],
     cta: 'Começar grátis',
   },
   {
@@ -38,26 +44,26 @@ const PLANS = [
 
 export default function Pricing() {
   return (
-    <section id="planos" className="mx-auto max-w-[1160px] px-8 pt-[88px]">
+    <section id="planos" className="mx-auto max-w-[1200px] px-6 pt-24 sm:px-8">
       <div className="text-center">
-        <div className="text-xs font-bold uppercase tracking-widest text-ember-700">Planos</div>
-        <h2 className="mx-auto mt-3 text-[32px] font-extrabold leading-tight tracking-tight sm:text-[38px]">
+        <div className="text-xs font-bold uppercase tracking-widest text-ember-500">Planos</div>
+        <h2 className="gradient-text mx-auto mt-4 max-w-[24ch] text-[30px] font-extrabold leading-tight tracking-tight sm:text-[38px]">
           Preço pelo que a casa opera, não por usuário
         </h2>
-        <p className="mx-auto mt-3.5 max-w-[54ch] text-base leading-relaxed text-ink-soft">
+        <p className="mx-auto mt-4 max-w-[54ch] text-[15px] leading-relaxed text-mist-soft">
           Toda a equipe usa a plataforma no plano que você escolher, sem cobrança por usuário e sem
           comissão sobre as vendas. O que a casa fatura é da casa.
         </p>
       </div>
 
-      <div className="mt-10 grid grid-cols-1 items-start gap-4 sm:grid-cols-3">
+      <div className="mt-12 grid grid-cols-1 items-start gap-4 sm:grid-cols-3">
         {PLANS.map((plan) => (
           <div
             key={plan.name}
             className={
               plan.featured
-                ? 'relative rounded-3xl border border-ember-500/50 bg-dark p-8 text-white shadow-[0_24px_54px_rgba(20,10,4,0.3)]'
-                : 'rounded-3xl border border-ink/[0.07] bg-card p-8'
+                ? 'relative rounded-2xl border border-ember-500/50 bg-night-card p-8 shadow-[0_24px_60px_rgba(245,129,31,0.12)]'
+                : 'rounded-2xl border border-night-line bg-night-soft p-8'
             }
           >
             {plan.badge && (
@@ -65,18 +71,22 @@ export default function Pricing() {
                 {plan.badge}
               </div>
             )}
-            <div className="text-lg font-extrabold tracking-tight">{plan.name}</div>
-            <p className={plan.featured ? 'mt-1.5 text-sm leading-snug text-dark-mute' : 'mt-1.5 text-sm leading-snug text-ink-mute'}>
-              {plan.description}
-            </p>
+            <div className="text-lg font-extrabold tracking-tight text-white">{plan.name}</div>
+            <p className="mt-1.5 text-sm leading-snug text-mist-mute">{plan.description}</p>
             <div className="mt-5 flex items-baseline gap-1.5">
-              <span className={plan.featured ? 'text-[38px] font-extrabold tracking-tighter text-ember-400' : 'text-[38px] font-extrabold tracking-tighter'}>
+              <span
+                className={
+                  plan.featured
+                    ? 'text-[38px] font-extrabold tracking-tighter text-ember-400'
+                    : 'text-[38px] font-extrabold tracking-tighter text-white'
+                }
+              >
                 {plan.price}
               </span>
-              <span className={plan.featured ? 'text-sm font-semibold text-dark-mute' : 'text-sm font-semibold text-ink-mute'}>/mês</span>
+              <span className="text-sm font-semibold text-mist-mute">/mês</span>
             </div>
-            <div className={plan.featured ? 'my-6 h-px bg-white/10' : 'my-6 h-px bg-ink/[0.08]'} />
-            <div className={plan.featured ? 'grid gap-2.5 text-sm leading-snug text-[#E8DED8]' : 'grid gap-2.5 text-sm leading-snug text-ink'}>
+            <div className="my-6 h-px bg-night-line" />
+            <div className="grid gap-2.5 text-sm leading-snug text-mist">
               {plan.features.map((feature) => (
                 <div key={feature}>{feature}</div>
               ))}
@@ -85,8 +95,8 @@ export default function Pricing() {
               href="#cadastro"
               className={
                 plan.featured
-                  ? 'mt-7 block rounded-full bg-ember-500 py-3.5 text-center text-[15px] font-bold text-[#2A1403] shadow-[0_8px_22px_rgba(224,108,12,0.38)] transition hover:bg-ember-400'
-                  : 'mt-7 block rounded-full border border-ink/10 bg-ink/5 py-3.5 text-center text-[15px] font-bold text-ink transition hover:bg-ink/[0.09]'
+                  ? 'mt-7 block rounded-full bg-ember-500 py-3.5 text-center text-[15px] font-bold text-[#2A1403] transition hover:bg-ember-400'
+                  : 'mt-7 block rounded-full border border-night-line bg-night-card py-3.5 text-center text-[15px] font-bold text-white transition hover:border-mist-mute'
               }
             >
               {plan.cta}
@@ -95,7 +105,7 @@ export default function Pricing() {
         ))}
       </div>
 
-      <p className="mx-auto mt-7 max-w-[62ch] text-center text-[13px] leading-relaxed text-ink-mute">
+      <p className="mx-auto mt-8 max-w-[62ch] text-center text-[13px] leading-relaxed text-mist-mute">
         A plataforma já está no ar e estamos abrindo para as primeiras casas. Quem entra agora fala
         direto com quem desenvolve o produto.
       </p>

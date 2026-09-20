@@ -1,26 +1,79 @@
 import CompanyFooter from './CompanyFooter'
+import logoMark from '../assets/logo-mark.png'
+
+const COLUMNS = [
+  {
+    title: 'Produto',
+    links: [
+      { href: '#paineis', label: 'Os quatro painéis' },
+      { href: '#pagamentos', label: 'Pagamentos' },
+      { href: '#tecnologia', label: 'Tecnologia' },
+      { href: '#planos', label: 'Planos' },
+    ],
+  },
+  {
+    title: 'Ajuda',
+    links: [
+      { href: '#faq', label: 'Dúvidas frequentes' },
+      { href: '#economia', label: 'Economia de pessoal' },
+      { href: '#cadastro', label: 'Falar com a gente' },
+    ],
+  },
+]
 
 export default function Footer() {
   return (
-    <footer className="bg-dark text-dark-mute">
-      <div className="mx-auto flex max-w-[1160px] flex-wrap items-center justify-between gap-6 px-8 py-11">
-        <div className="flex items-center gap-3">
-          <div className="h-8 w-8 rounded-[10px] bg-gradient-to-br from-ember-400 to-ember-600" />
-          <div className="text-[15px] font-bold text-white">Boteco do Zé</div>
+    <footer className="border-t border-night-line bg-night-soft">
+      <div className="mx-auto max-w-[1200px] px-6 py-14 sm:px-8">
+        <div className="flex flex-wrap justify-between gap-10">
+          <div className="max-w-[260px]">
+            <div className="flex items-center gap-2.5">
+              <img src={logoMark} alt="Boteco do Zé" className="h-10 w-10 rounded-xl bg-white object-contain p-1" />
+              <div>
+                <div className="text-[15px] font-extrabold text-white">Boteco do Zé</div>
+                <div className="text-[11px] font-semibold uppercase tracking-wider text-mist-mute">
+                  Software de gestão
+                </div>
+              </div>
+            </div>
+            <p className="mt-4 text-[13px] leading-relaxed text-mist-soft">
+              Plataforma de gestão em tempo real para bares e restaurantes: cardápio digital, balcão,
+              cozinha e display de chamada.
+            </p>
+          </div>
+
+          {COLUMNS.map((column) => (
+            <div key={column.title}>
+              <div className="text-[13px] font-bold uppercase tracking-wider text-white">{column.title}</div>
+              <div className="mt-4 grid gap-2.5">
+                {column.links.map((link) => (
+                  <a
+                    key={link.href + link.label}
+                    href={link.href}
+                    className="text-[13.5px] text-mist-soft transition hover:text-white"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          <div>
+            <div className="text-[13px] font-bold uppercase tracking-wider text-white">Comece agora</div>
+            <p className="mt-4 max-w-[220px] text-[13.5px] leading-relaxed text-mist-soft">
+              Conta pronta no mesmo dia, sem cartão e sem fidelidade.
+            </p>
+            <a
+              href="#cadastro"
+              className="mt-4 inline-block rounded-full bg-ember-500 px-6 py-3 text-sm font-bold text-[#2A1403] transition hover:bg-ember-400"
+            >
+              Criar conta grátis
+            </a>
+          </div>
         </div>
-        <div className="text-[13px]">Plataforma de gestão para bares e restaurantes</div>
-        <div className="flex gap-6 text-[13px] font-semibold">
-          <a href="#cadastro" className="text-dark-soft hover:text-white">
-            Criar conta
-          </a>
-          <a href="#planos" className="text-dark-soft hover:text-white">
-            Planos
-          </a>
-          <a href="#paineis" className="text-dark-soft hover:text-white">
-            Painéis
-          </a>
-        </div>
-        <div className="w-full">
+
+        <div className="mt-12">
           <CompanyFooter variant="dark" />
         </div>
       </div>
