@@ -39,7 +39,7 @@ export default function LandingPage() {
   useScrollToHash()
 
   return (
-    <div className="overflow-x-hidden bg-night font-sans text-mist">
+    <div className="overflow-x-hidden bg-night-line font-sans text-mist">
       <Header />
       {/* O hero fica fora da animação: está acima da dobra e piscaria no carregamento. */}
       <Hero />

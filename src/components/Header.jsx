@@ -42,12 +42,6 @@ export default function Header() {
 
         <div className="ml-auto flex items-center gap-3 lg:ml-0">
           <a
-            href={`${ORDER_MANAGER_URL}/login`}
-            className="hidden text-sm font-semibold text-mist-soft transition hover:text-white sm:block"
-          >
-            Entrar
-          </a>
-          <a
             href="#cadastro"
             className="whitespace-nowrap rounded-full bg-white px-4 py-2.5 text-[13px] font-bold text-night transition hover:bg-mist sm:px-5 sm:text-sm"
           >
